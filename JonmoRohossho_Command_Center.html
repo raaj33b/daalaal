@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>∴ JONMOROHOSSHO · OMNI ASTROLOGY COMMAND CENTER</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;}
+
+/* ════════ VARIABLES ════════ */
+:root{
+  --void:#020008;--deep:#05001a;--panel:#08001f;--card:#0c0028;
+  --gold:#c9a227;--goldl:#f5d060;--goldd:#6b520a;
+  --cyan:#00e5ff;--cyanl:#80f4ff;--cyand:#007a8a;
+  --violet:#7c3aed;--violetl:#c084fc;
+  --ruby:#dc2626;--rubyl:#ff6b6b;
+  --green:#00ff88;--greenl:#80ffc0;
+  --amber:#f59e0b;--amberl:#fbbf24;
+  --font-display:'Orbitron',sans-serif;
+  --font-body:'Rajdhani',sans-serif;
+  --font-mono:'Share Tech Mono',monospace;
+}
+
+/* ════════ SCAN LINES ════════ */
+body::before{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,229,255,0.01) 3px,rgba(0,229,255,0.01) 4px);
+}
+
+/* ════════ COSMIC BG ════════ */
+#cosmic-bg{
+  position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 20% 20%,rgba(124,58,237,0.12) 0%,transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 80%,rgba(0,229,255,0.07) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,162,39,0.04) 0%,transparent 70%),
+    #020008;
+}
+.star{position:absolute;border-radius:50%;animation:startwink var(--sd,3s) ease-in-out infinite;opacity:0;}
+@keyframes startwink{0%,100%{opacity:0;}50%{opacity:var(--so,.6);}}
+
+/* ════════ PW SCREEN ════════ */
+#pw-screen{
+  position:fixed;inset:0;z-index:9000;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  background:#000;
+}
+.pw-ring{
+  position:absolute;border-radius:50%;border:1px solid;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:rspin var(--rs,20s) linear infinite var(--rd,normal);
+}
+@keyframes rspin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* ── 3D PLANET LOGO ── */
+.planet-system{
+  position:relative;width:180px;height:180px;
+  margin:0 auto 20px;
+}
+.planet-core{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:70px;height:70px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#f5d060,#c9a227,#6b520a,#2a1c00);
+  box-shadow:0 0 30px rgba(201,162,39,.8),0 0 60px rgba(201,162,39,.4),inset -8px -8px 20px rgba(0,0,0,.6);
+  animation:planet-rotate 8s linear infinite;
+}
+@keyframes planet-rotate{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(20deg);}}
+
+.orbit{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid;transform:translate(-50%,-50%);}
+.orbit1{width:110px;height:110px;border-color:rgba(0,229,255,.2);animation:rspin 6s linear infinite;}
+.orbit2{width:150px;height:150px;border-color:rgba(201,162,39,.15);animation:rspin 10s linear infinite reverse;}
+.orbit3{width:180px;height:180px;border-color:rgba(124,58,237,.1);animation:rspin 15s linear infinite;}
+
+.satellite{
+  position:absolute;width:10px;height:10px;border-radius:50%;
+  top:50%;left:0;transform:translate(-50%,-50%);
+}
+.sat1{background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:sat-orbit1 6s linear infinite;}
+.sat2{background:var(--gold);box-shadow:0 0 8px var(--gold);animation:sat-orbit2 10s linear infinite;}
+.sat3{width:6px;height:6px;background:var(--violetl);box-shadow:0 0 6px var(--violetl);animation:sat-orbit3 15s linear infinite;}
+
+@keyframes sat-orbit1{
+  from{transform:translate(-50%,-50%) rotate(0deg) translateX(55px) rotate(0deg);}
+  to{transform:translate(-50%,-50%) rotate(360deg) translateX(55px) rotate(-360deg);}
+}
+@keyframes sat-orbit2{
+  from{transform:translate(-50%,-50%) rotate(45deg) translateX(75px) rotate(-45deg);}
+  to{transform:translate(-50%,-50%) rotate(405deg) translateX(75px) rotate(-405deg);}
+}
+@keyframes sat-orbit3{
+  from{transform:translate(-50%,-50%) rotate(180deg) translateX(90px) rotate(-180deg);}
+  to{transform:translate(-50%,-50%) rotate(540deg) translateX(90px) rotate(-540deg);}
+}
+
+/* ring around core */
+.ring-equator{
+  position:absolute;top:50%;left:50%;
+  width:90px;height:20px;
+  border-radius:50%;
+  border:2px solid rgba(201,162,39,.5);
+  transform:translate(-50%,-50%) rotateX(70deg);
+  box-shadow:0 0 10px rgba(201,162,39,.3);
+}
+
+.pw-brand{
+  font-family:var(--font-display);font-size:clamp(16px,3vw,26px);font-weight:900;
+  letter-spacing:6px;text-align:center;margin-bottom:4px;
+  background:linear-gradient(135deg,#6b520a,#f5d060,#c9a227,#00e5ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(201,162,39,.5));
+}
+.pw-tagline{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:8px;
+  color:rgba(0,229,255,.4);text-align:center;margin-bottom:32px;
+}
+
+.pw-card{
+  background:rgba(2,0,8,.95);border:1px solid rgba(0,229,255,.15);
+  border-radius:4px;padding:32px 36px;width:min(440px,94vw);
+  position:relative;overflow:hidden;
+  box-shadow:0 0 40px rgba(0,229,255,.08),0 0 80px rgba(124,58,237,.06);
+}
+.pw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(0,229,255,.5),transparent);}
+.pw-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(201,162,39,.3),transparent);}
+
+/* scanning glow */
+.pw-scan{
+  position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,rgba(0,229,255,.6),transparent);
+  animation:scan-down 3s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes scan-down{0%{top:-2px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:100%;opacity:0}}
+
+.pw-status-bar{
+  display:flex;align-items:center;gap:8px;margin-bottom:20px;
+  font-family:var(--font-mono);font-size:10px;
+  color:rgba(0,229,255,.5);letter-spacing:2px;
+}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan);animation:startwink 1s ease-in-out infinite;--so:1;}
+
+.pw-label{
+  font-family:var(--font-body);font-size:13px;letter-spacing:4px;
+  color:rgba(0,229,255,.6);text-transform:uppercase;margin-bottom:10px;display:block;
+  font-weight:600;
+}
+.pw-inp-row{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(0,0,0,.8);border:1px solid rgba(0,229,255,.2);
+  padding:0 14px;margin-bottom:14px;border-radius:2px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.pw-inp-row:focus-within{border-color:rgba(0,229,255,.6);box-shadow:0 0 12px rgba(0,229,255,.12);}
+.pw-ico{color:rgba(0,229,255,.4);font-size:16px;}
+.pw-inp{
+  flex:1;background:transparent;border:none;
+  color:var(--cyan);font-family:var(--font-mono);font-size:18px;
+  padding:14px 0;outline:none;letter-spacing:4px;
+}
+.pw-inp::placeholder{color:rgba(0,229,255,.15);font-size:14px;letter-spacing:2px;}
+
+.pw-btn{
+  width:100%;padding:14px;border:1px solid rgba(0,229,255,.35);border-radius:2px;
+  background:linear-gradient(135deg,rgba(0,229,255,.08),rgba(201,162,39,.08));
+  color:var(--cyan);font-family:var(--font-display);font-size:13px;letter-spacing:5px;
+  cursor:pointer;transition:all .2s;text-transform:uppercase;font-weight:700;
+  position:relative;overflow:hidden;
+}
+.pw-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,229,255,.0),rgba(0,229,255,.15));
+  opacity:0;transition:opacity .2s;
+}
+.pw-btn:hover::before{opacity:1;}
+.pw-btn:hover{box-shadow:0 0 20px rgba(0,229,255,.2);}
+
+.pw-err{
+  font-family:var(--font-mono);font-size:12px;color:var(--ruby);
+  letter-spacing:2px;margin-top:10px;min-height:18px;text-align:center;
+}
+.pw-free-badge{
+  text-align:center;margin-top:14px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:2px;
+  color:rgba(201,162,39,.35);
+}
+
+/* ════════ MAIN APP ════════ */
+#app{display:none;position:fixed;inset:0;flex-direction:column;z-index:100;}
+
+/* ── TOP STATUS BAR ── */
+#top-bar{
+  height:38px;
+  background:rgba(0,0,8,.97);
+  border-bottom:1px solid rgba(0,229,255,.1);
+  display:flex;align-items:center;gap:0;
+  font-family:var(--font-mono);font-size:11px;flex-shrink:0;
+  position:relative;z-index:10;
+}
+.tb-seg{
+  display:flex;align-items:center;gap:8px;
+  padding:0 14px;height:100%;
+  border-right:1px solid rgba(0,229,255,.06);
+  color:rgba(255,255,255,.4);letter-spacing:1.5px;font-size:10px;
+}
+.tb-seg.active-seg{background:rgba(0,229,255,.04);color:var(--cyan);}
+.tb-seg .dot{width:6px;height:6px;border-radius:50%;}
+.dot-g{background:var(--green);box-shadow:0 0 6px var(--green);}
+.dot-y{background:var(--amber);}
+.dot-r{background:var(--ruby);}
+.dot-c{background:var(--cyan);box-shadow:0 0 6px var(--cyan);}
+.tb-right{margin-left:auto;display:flex;align-items:center;}
+#live-clock{font-size:14px;color:var(--goldl);letter-spacing:3px;font-family:var(--font-display);font-weight:700;padding:0 16px;}
+.tb-lock{padding:0 14px;height:100%;border-left:1px solid rgba(0,229,255,.06);display:flex;align-items:center;cursor:pointer;color:rgba(0,229,255,.3);font-size:14px;transition:.2s;}
+.tb-lock:hover{color:var(--cyan);}
+
+/* ── BODY LAYOUT ── */
+#body{display:flex;flex:1;overflow:hidden;}
+
+/* ── LEFT SIDEBAR ── */
+#sidebar{
+  width:220px;flex-shrink:0;
+  background:rgba(0,0,10,.95);
+  border-right:1px solid rgba(0,229,255,.08);
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+}
+.sb-brand{
+  padding:18px 16px 14px;
+  border-bottom:1px solid rgba(0,229,255,.06);
+}
+.sb-logo{
+  font-family:var(--font-display);font-size:11px;font-weight:900;
+  letter-spacing:3px;
+  background:linear-gradient(135deg,var(--gold),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;margin-bottom:3px;
+}
+.sb-tag{font-family:var(--font-mono);font-size:9px;color:rgba(0,229,255,.35);letter-spacing:2px;}
+
+.sb-section{padding:8px 0 4px;}
+.sb-section-title{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:3px;
+  color:rgba(255,255,255,.2);padding:4px 16px 6px;text-transform:uppercase;
+}
+.sb-item{
+  display:flex;align-items:center;gap:10px;padding:10px 16px;
+  cursor:pointer;transition:.15s;border-left:2px solid transparent;
+  font-family:var(--font-body);font-size:14px;font-weight:500;
+  color:rgba(255,255,255,.35);letter-spacing:1px;
+}
+.sb-item:hover{color:rgba(255,255,255,.7);background:rgba(0,229,255,.03);}
+.sb-item.active{color:var(--cyan);border-left-color:var(--cyan);background:rgba(0,229,255,.06);}
+.sb-item .sb-ico{font-size:16px;width:20px;text-align:center;}
+.sb-badge{
+  margin-left:auto;font-family:var(--font-mono);font-size:9px;
+  padding:2px 7px;border-radius:2px;font-weight:700;
+}
+.badge-free{background:rgba(0,255,136,.15);border:1px solid rgba(0,255,136,.3);color:var(--green);}
+.badge-paid{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.25);color:var(--gold);}
+.badge-lock{background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:var(--violetl);}
+
+.sb-tier{
+  margin:8px 12px;border:1px solid rgba(201,162,39,.15);border-radius:3px;
+  padding:12px;background:rgba(201,162,39,.03);
+}
+.tier-name{font-family:var(--font-display);font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:6px;}
+.tier-price{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--goldl);}
+.tier-unit{font-size:9px;color:rgba(201,162,39,.4);font-family:var(--font-mono);letter-spacing:1px;}
+.tier-tag{font-family:var(--font-mono);font-size:9px;color:rgba(0,255,136,.6);margin-top:4px;}
+
+/* ── MAIN CONTENT ── */
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+
+/* ── PAGE HEADER ── */
+.page-hdr{
+  padding:14px 24px 10px;border-bottom:1px solid rgba(0,229,255,.06);
+  display:flex;align-items:center;gap:12px;flex-shrink:0;
+  background:rgba(0,0,10,.7);
+}
+.page-hdr-ico{font-size:18px;}
+.page-hdr-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--cyan);letter-spacing:4px;}
+.page-hdr-right{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.hdr-badge{
+  font-family:var(--font-mono);font-size:9px;padding:3px 10px;border-radius:2px;
+  letter-spacing:2px;
+}
+
+/* ── INPUT VIEW ── */
+#view-input{
+  flex:1;overflow-y:auto;padding:20px 24px;
+}
+#view-input::-webkit-scrollbar{width:4px;}
+#view-input::-webkit-scrollbar-thumb{background:rgba(0,229,255,.15);}
+
+/* ── CENTER HERO ── */
+.input-hero{
+  display:grid;grid-template-columns:1fr 380px;gap:24px;
+  margin-bottom:20px;
+}
+@media(max-width:900px){.input-hero{grid-template-columns:1fr;}}
+
+/* ── PLANET DISPLAY ── */
+.planet-display{
+  background:rgba(0,0,15,.8);border:1px solid rgba(201,162,39,.12);
+  border-radius:4px;padding:24px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;min-height:320px;
+}
+.pd-scan{
+  position:absolute;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(0,229,255,.4),transparent);
+  animation:scan-down 4s ease-in-out infinite;pointer-events:none;
+}
+.pd-corner{position:absolute;width:16px;height:16px;border-color:rgba(0,229,255,.3);border-style:solid;}
+.pd-corner.tl{top:8px;left:8px;border-width:1px 0 0 1px;}
+.pd-corner.tr{top:8px;right:8px;border-width:1px 1px 0 0;}
+.pd-corner.bl{bottom:8px;left:8px;border-width:0 0 1px 1px;}
+.pd-corner.br{bottom:8px;right:8px;border-width:0 1px 1px 0;}
+
+.planet-3d-wrap{position:relative;width:200px;height:200px;margin-bottom:16px;}
+.p3d-core{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:80px;height:80px;border-radius:50%;
+  background:radial-gradient(circle at 32% 32%,#f5d060,#c9a227,#8b6500,#3a2800);
+  box-shadow:0 0 40px rgba(201,162,39,.7),0 0 80px rgba(201,162,39,.3),inset -10px -10px 25px rgba(0,0,0,.7);
+  animation:p3d-spin 12s linear infinite;
+}
+@keyframes p3d-spin{0%,100%{box-shadow:0 0 40px rgba(201,162,39,.7),0 0 80px rgba(201,162,39,.3),inset -10px -10px 25px rgba(0,0,0,.7);}50%{box-shadow:0 0 50px rgba(0,229,255,.4),0 0 100px rgba(201,162,39,.2),inset -5px -5px 25px rgba(0,0,0,.7);}}
+
+.p3d-ring{
+  position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid;
+  transform:translate(-50%,-50%);
+}
+.p3d-r1{width:120px;height:120px;border-color:rgba(0,229,255,.2);animation:rspin 5s linear infinite;}
+.p3d-r2{width:160px;height:160px;border-color:rgba(201,162,39,.12);animation:rspin 9s linear infinite reverse;}
+.p3d-r3{width:200px;height:200px;border-color:rgba(124,58,237,.08);animation:rspin 14s linear infinite;}
+.p3d-equator{
+  position:absolute;top:50%;left:50%;
+  width:100px;height:22px;border-radius:50%;
+  border:2px solid rgba(201,162,39,.45);
+  transform:translate(-50%,-50%) rotateX(70deg);
+  box-shadow:0 0 12px rgba(201,162,39,.25);
+}
+.p3d-sat{
+  position:absolute;border-radius:50%;
+  top:50%;left:50%;
+}
+.ps1{width:10px;height:10px;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:sat-orbit1 5s linear infinite;}
+.ps2{width:8px;height:8px;background:var(--gold);box-shadow:0 0 7px var(--gold);animation:sat-orbit2 9s linear infinite;}
+.ps3{width:6px;height:6px;background:var(--violetl);box-shadow:0 0 6px var(--violetl);animation:sat-orbit3 14s linear infinite;}
+
+.pd-title{
+  font-family:var(--font-display);font-size:clamp(18px,2vw,26px);font-weight:900;
+  letter-spacing:5px;color:var(--goldl);text-align:center;
+  filter:drop-shadow(0 0 12px rgba(201,162,39,.5));margin-bottom:4px;
+}
+.pd-sub{font-family:var(--font-mono);font-size:10px;color:rgba(0,229,255,.45);letter-spacing:4px;text-align:center;margin-bottom:12px;}
+.pd-mantra{
+  font-family:var(--font-mono);font-size:9px;
+  color:rgba(201,162,39,.3);letter-spacing:3px;text-align:center;
+  border-top:1px solid rgba(201,162,39,.08);padding-top:10px;
+}
+
+/* ── INPUT FORM ── */
+.input-form{
+  background:rgba(0,0,15,.8);border:1px solid rgba(0,229,255,.12);
+  border-radius:4px;padding:24px;position:relative;
+}
+.input-form::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;
+  background:linear-gradient(to right,transparent,rgba(0,229,255,.4),transparent);}
+
+.form-title{
+  font-family:var(--font-display);font-size:13px;font-weight:700;
+  color:var(--cyan);letter-spacing:4px;margin-bottom:6px;display:flex;align-items:center;gap:8px;
+}
+.form-sub{font-family:var(--font-mono);font-size:10px;color:rgba(0,229,255,.35);letter-spacing:2px;margin-bottom:20px;}
+
+.free-slots{
+  display:flex;align-items:center;gap:8px;margin-bottom:18px;
+  background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.15);
+  border-radius:3px;padding:10px 14px;
+}
+.fs-num{font-family:var(--font-display);font-size:28px;font-weight:900;color:var(--green);line-height:1;}
+.fs-info{flex:1;}
+.fs-label{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--greenl);letter-spacing:2px;}
+.fs-sub{font-family:var(--font-mono);font-size:9px;color:rgba(0,255,136,.5);letter-spacing:1px;margin-top:2px;}
+.fs-dots{display:flex;gap:3px;margin-top:4px;}
+.fs-dot{width:8px;height:8px;border-radius:50%;}
+.fs-dot.used{background:rgba(255,255,255,.15);}
+.fs-dot.avail{background:var(--green);box-shadow:0 0 4px var(--green);}
+
+.field-group{margin-bottom:16px;}
+.field-label{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:3px;
+  color:rgba(0,229,255,.5);text-transform:uppercase;margin-bottom:7px;display:block;
+  font-weight:600;
+}
+.field-inp{
+  width:100%;background:rgba(0,0,0,.7);
+  border:1px solid rgba(0,229,255,.2);border-radius:2px;
+  color:var(--cyanl);font-family:var(--font-mono);font-size:16px;
+  padding:12px 14px;outline:none;letter-spacing:2px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.field-inp:focus{border-color:rgba(0,229,255,.6);box-shadow:0 0 10px rgba(0,229,255,.08);}
+.field-inp::placeholder{color:rgba(0,229,255,.2);font-size:13px;}
+.field-inp option{background:#020008;color:var(--cyanl);}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+.activate-btn{
+  width:100%;padding:16px;
+  background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(201,162,39,.12));
+  border:1px solid rgba(0,229,255,.3);border-radius:3px;
+  color:var(--cyan);font-family:var(--font-display);font-size:14px;font-weight:700;
+  letter-spacing:6px;cursor:pointer;transition:all .3s;text-transform:uppercase;
+  position:relative;overflow:hidden;margin-top:4px;
+}
+.activate-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,229,255,.0),rgba(0,229,255,.2));
+  opacity:0;transition:opacity .3s;
+}
+.activate-btn:hover::before{opacity:1;}
+.activate-btn:hover{box-shadow:0 0 30px rgba(0,229,255,.2);border-color:rgba(0,229,255,.6);}
+.activate-btn:active{transform:scale(.99);}
+
+.form-err{
+  font-family:var(--font-mono);font-size:11px;color:var(--ruby);
+  letter-spacing:2px;margin-top:8px;min-height:16px;
+}
+
+/* ── DOCTRINE GRID ── */
+.doctrine-grid{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:20px;
+}
+@media(max-width:1200px){.doctrine-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:700px){.doctrine-grid{grid-template-columns:repeat(2,1fr);}}
+
+.doctrine-card{
+  background:rgba(0,0,15,.7);border:1px solid rgba(0,229,255,.08);
+  border-radius:3px;padding:14px 12px;cursor:pointer;
+  transition:all .2s;text-align:center;
+}
+.doctrine-card:hover{border-color:rgba(0,229,255,.25);background:rgba(0,229,255,.04);}
+.doctrine-card.active-d{border-color:rgba(0,229,255,.4);background:rgba(0,229,255,.07);}
+.dc-ico{font-size:20px;margin-bottom:6px;}
+.dc-name{font-family:var(--font-display);font-size:10px;font-weight:700;color:rgba(0,229,255,.7);letter-spacing:1px;margin-bottom:3px;}
+.dc-system{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.3);letter-spacing:1px;}
+.dc-dot{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 4px var(--green);display:inline-block;margin-top:5px;}
+
+/* ── RESULT VIEW ── */
+#view-result{
+  display:none;flex:1;overflow-y:auto;padding:20px 24px;
+}
+#view-result::-webkit-scrollbar{width:4px;}
+#view-result::-webkit-scrollbar-thumb{background:rgba(0,229,255,.15);}
+
+.result-header{
+  background:linear-gradient(135deg,rgba(0,0,15,.9),rgba(0,229,255,.03));
+  border:1px solid rgba(0,229,255,.15);border-radius:4px;
+  padding:20px 24px;margin-bottom:18px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.rh-scan{position:absolute;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(0,229,255,.5),transparent);
+  animation:scan-down 3s ease-in-out infinite;pointer-events:none;top:0;}
+
+.rh-name{font-family:var(--font-display);font-size:clamp(20px,3vw,32px);font-weight:900;
+  color:var(--goldl);letter-spacing:4px;filter:drop-shadow(0 0 12px rgba(201,162,39,.4));}
+.rh-meta{flex:1;}
+.rh-dob{font-family:var(--font-mono);font-size:13px;color:rgba(0,229,255,.6);letter-spacing:2px;margin-bottom:3px;}
+.rh-pob{font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1px;}
+.rh-code{
+  font-family:var(--font-display);font-size:28px;font-weight:900;
+  color:var(--cyan);letter-spacing:2px;
+  filter:drop-shadow(0 0 12px rgba(0,229,255,.5));
+}
+.rh-code-label{font-family:var(--font-mono);font-size:9px;color:rgba(0,229,255,.4);letter-spacing:3px;}
+
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;}
+@media(max-width:1000px){.result-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:650px){.result-grid{grid-template-columns:1fr;}}
+
+.result-card{
+  background:rgba(0,0,15,.8);border:1px solid;
+  border-radius:4px;padding:18px;position:relative;overflow:hidden;
+}
+.rc-top{position:absolute;top:-1px;left:15%;right:15%;height:1px;}
+.rc-ico{font-size:22px;margin-bottom:8px;}
+.rc-title{
+  font-family:var(--font-display);font-size:11px;font-weight:700;
+  letter-spacing:3px;margin-bottom:10px;text-transform:uppercase;
+}
+.rc-main{font-family:var(--font-display);font-size:22px;font-weight:900;letter-spacing:2px;margin-bottom:6px;}
+.rc-desc{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;font-weight:400;}
+.rc-tag{
+  display:inline-block;margin-top:8px;
+  font-family:var(--font-mono);font-size:9px;letter-spacing:2px;
+  padding:2px 8px;border-radius:2px;
+}
+
+/* card colors */
+.rc-gold{border-color:rgba(201,162,39,.2);} .rc-gold .rc-top{background:linear-gradient(to right,transparent,rgba(201,162,39,.4),transparent);} .rc-gold .rc-title{color:var(--gold);} .rc-gold .rc-main{color:var(--goldl);}
+.rc-cyan{border-color:rgba(0,229,255,.15);} .rc-cyan .rc-top{background:linear-gradient(to right,transparent,rgba(0,229,255,.35),transparent);} .rc-cyan .rc-title{color:rgba(0,229,255,.7);} .rc-cyan .rc-main{color:var(--cyanl);}
+.rc-violet{border-color:rgba(124,58,237,.18);} .rc-violet .rc-top{background:linear-gradient(to right,transparent,rgba(192,132,252,.4),transparent);} .rc-violet .rc-title{color:rgba(192,132,252,.8);} .rc-violet .rc-main{color:var(--violetl);}
+.rc-ruby{border-color:rgba(220,38,38,.15);} .rc-ruby .rc-top{background:linear-gradient(to right,transparent,rgba(255,107,107,.35),transparent);} .rc-ruby .rc-title{color:rgba(255,107,107,.8);} .rc-ruby .rc-main{color:var(--rubyl);}
+.rc-green{border-color:rgba(0,255,136,.12);} .rc-green .rc-top{background:linear-gradient(to right,transparent,rgba(0,255,136,.3),transparent);} .rc-green .rc-title{color:rgba(0,255,136,.7);} .rc-green .rc-main{color:var(--greenl);}
+.rc-amber{border-color:rgba(245,158,11,.15);} .rc-amber .rc-top{background:linear-gradient(to right,transparent,rgba(251,191,36,.35),transparent);} .rc-amber .rc-title{color:rgba(251,191,36,.8);} .rc-amber .rc-main{color:var(--amberl);}
+
+/* ── TIMELINE BAR ── */
+.timeline-wrap{
+  background:rgba(0,0,15,.8);border:1px solid rgba(0,229,255,.1);
+  border-radius:4px;padding:18px 20px;margin-bottom:18px;
+}
+.tl-title{font-family:var(--font-display);font-size:12px;color:var(--cyan);letter-spacing:4px;margin-bottom:14px;font-weight:700;}
+.tl-track{display:flex;height:44px;border-radius:3px;overflow:hidden;margin-bottom:8px;gap:2px;}
+.tl-phase{
+  display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:4px;cursor:pointer;transition:filter .2s;
+  flex-direction:column;align-items:center;
+  position:relative;overflow:hidden;
+}
+.tl-phase::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity .2s;}
+.tl-phase:hover::after{opacity:1;}
+.tl-pl{font-family:var(--font-mono);font-size:7px;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:2px;text-align:center;}
+.tl-py{font-family:var(--font-mono);font-size:6px;color:rgba(255,255,255,.2);text-align:center;}
+.tl-p-root{background:rgba(139,69,19,.35);flex:1.8;} .tl-p-root::after{background:rgba(139,69,19,.25);}
+.tl-p-trunk{background:rgba(205,133,0,.3);flex:2.3;} .tl-p-trunk::after{background:rgba(205,133,0,.2);}
+.tl-p-branch{background:rgba(30,64,175,.3);flex:2.4;} .tl-p-branch::after{background:rgba(30,64,175,.2);}
+.tl-p-storm{background:rgba(139,0,0,.4);flex:0.9;} .tl-p-storm::after{background:rgba(139,0,0,.25);}
+.tl-p-now{background:rgba(201,162,39,.35);flex:0.2;border:1px solid rgba(201,162,39,.5);}
+.tl-p-golden{background:rgba(255,215,0,.25);flex:0.4;} 
+.tl-p-rahu{background:rgba(124,58,237,.3);flex:1.5;}
+.tl-now-mark{position:absolute;top:0;bottom:0;width:2px;background:var(--goldl);box-shadow:0 0 8px var(--goldl);}
+
+/* ── DOCTRINES DISPLAY ── */
+.doctrines-panel{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;
+}
+@media(max-width:700px){.doctrines-panel{grid-template-columns:1fr;}}
+.dp-card{
+  background:rgba(0,0,15,.8);border:1px solid rgba(0,229,255,.1);
+  border-radius:4px;padding:16px;
+}
+.dp-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(0,229,255,.06);}
+.dp-ico{font-size:18px;}
+.dp-name{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:3px;}
+.dp-badge{margin-left:auto;font-family:var(--font-mono);font-size:8px;padding:2px 7px;border-radius:2px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.15);color:rgba(0,229,255,.6);}
+.dp-row{display:flex;gap:8px;margin-bottom:6px;font-family:var(--font-body);font-size:13px;}
+.dp-k{min-width:120px;color:rgba(0,229,255,.45);font-weight:500;flex-shrink:0;font-size:12px;}
+.dp-v{color:rgba(255,255,255,.7);flex:1;font-weight:400;}
+.dp-v .hl{color:var(--goldl);font-weight:600;}
+.dp-v .warn{color:var(--rubyl);}
+.dp-v .ok{color:var(--greenl);}
+
+/* ── VAULT SECTION ── */
+#vault-section{
+  background:rgba(0,0,15,.9);border:1px solid rgba(124,58,237,.2);
+  border-radius:4px;padding:20px;margin-bottom:18px;position:relative;overflow:hidden;
+}
+#vault-section::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;
+  background:linear-gradient(to right,transparent,rgba(124,58,237,.5),transparent);}
+.vault-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.vault-ico{font-size:20px;}
+.vault-title{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--violetl);letter-spacing:3px;}
+.vault-locked{
+  text-align:center;padding:16px 0;
+}
+.vault-lock-ico{font-size:36px;margin-bottom:10px;display:block;opacity:.4;}
+.vault-lock-msg{font-family:var(--font-mono);font-size:11px;color:rgba(124,58,237,.5);letter-spacing:2px;}
+.vault-inp-row{
+  display:flex;gap:8px;margin-top:12px;
+}
+.vault-inp{
+  flex:1;background:rgba(0,0,0,.7);border:1px solid rgba(124,58,237,.2);
+  color:var(--violetl);font-family:var(--font-mono);font-size:14px;
+  padding:10px 14px;outline:none;border-radius:2px;letter-spacing:3px;
+  transition:border-color .2s;
+}
+.vault-inp:focus{border-color:rgba(124,58,237,.5);}
+.vault-btn{
+  padding:10px 20px;background:rgba(124,58,237,.15);
+  border:1px solid rgba(124,58,237,.3);color:var(--violetl);
+  font-family:var(--font-display);font-size:10px;font-weight:700;
+  letter-spacing:2px;cursor:pointer;border-radius:2px;transition:.2s;
+  white-space:nowrap;
+}
+.vault-btn:hover{background:rgba(124,58,237,.25);}
+
+/* ── LOADING STATE ── */
+#loading-overlay{
+  display:none;position:fixed;inset:0;z-index:5000;
+  background:rgba(0,0,8,.85);backdrop-filter:blur(4px);
+  flex-direction:column;align-items:center;justify-content:center;
+}
+.ld-ring{
+  width:80px;height:80px;border-radius:50%;
+  border:2px solid transparent;
+  border-top-color:var(--cyan);border-right-color:rgba(0,229,255,.3);
+  animation:rspin 1s linear infinite;margin-bottom:20px;
+}
+.ld-text{font-family:var(--font-display);font-size:13px;color:var(--cyan);letter-spacing:6px;animation:ld-pulse 1.5s ease-in-out infinite;}
+@keyframes ld-pulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+.ld-sub{font-family:var(--font-mono);font-size:10px;color:rgba(0,229,255,.4);letter-spacing:3px;margin-top:8px;}
+
+/* ── TRANSITIONS ── */
+#fade-overlay{position:fixed;inset:0;background:#000;z-index:8999;transition:opacity .5s;pointer-events:none;}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:rgba(0,0,0,.3);}
+::-webkit-scrollbar-thumb{background:rgba(0,229,255,.15);border-radius:2px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  #sidebar{width:180px;}
+  .input-hero{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="cosmic-bg" id="cbg"></div>
+<div id="fade-overlay" style="opacity:1;"></div>
+
+<!-- ════════ PASSWORD SCREEN ════════ -->
+<div id="pw-screen">
+  <!-- rings -->
+  <div class="pw-ring" style="width:240px;height:240px;border-color:rgba(0,229,255,0.07);--rs:18s;"></div>
+  <div class="pw-ring" style="width:380px;height:380px;border-color:rgba(201,162,39,0.05);--rs:28s;--rd:reverse;"></div>
+  <div class="pw-ring" style="width:520px;height:520px;border-color:rgba(124,58,237,0.04);--rs:40s;"></div>
+  <div class="pw-ring" style="width:680px;height:680px;border-color:rgba(0,229,255,0.025);--rs:55s;--rd:reverse;"></div>
+
+  <!-- stars -->
+  <div id="pw-stars-container"></div>
+
+  <div style="position:relative;z-index:2;">
+    <!-- 3D planet -->
+    <div class="planet-system">
+      <div class="planet-core"></div>
+      <div class="orbit orbit1"></div>
+      <div class="orbit orbit2"></div>
+      <div class="orbit orbit3"></div>
+      <div class="satellite sat1"></div>
+      <div class="satellite sat2"></div>
+      <div class="satellite sat3"></div>
+      <div class="ring-equator"></div>
+    </div>
+
+    <div class="pw-brand">JONMOROHOSSHO</div>
+    <div class="pw-tagline">∴ OMNI ASTROLOGY COMMAND CENTER ∴</div>
+
+    <div class="pw-card">
+      <div class="pw-scan"></div>
+      <div class="pw-status-bar">
+        <div class="status-dot"></div>
+        <span>GATEWAY ONLINE</span>
+        <span>·</span>
+        <span>7 DOCTRINES LOADED</span>
+        <span>·</span>
+        <span id="pw-clock">00:00:00</span>
+      </div>
+
+      <span class="pw-label">🔐 Sacred Access Cipher</span>
+      <div class="pw-inp-row">
+        <span class="pw-ico">◈</span>
+        <input class="pw-inp" type="password" id="pw-input"
+          placeholder="Enter cipher code..."
+          onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <button class="pw-btn" onclick="doLogin()">
+        ✦ &nbsp; INITIATE ACCESS &nbsp; ✦
+      </button>
+      <div class="pw-err" id="pw-err"></div>
+      <div class="pw-free-badge" id="pw-free-info">
+        ∴ FREE TIER ACTIVE — 13 SEEKERS GET FREE READINGS ∴
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ LOADING ════════ -->
+<div id="loading-overlay">
+  <div class="ld-ring"></div>
+  <div class="ld-text">CALCULATING</div>
+  <div class="ld-sub" id="ld-sub-text">LOADING COSMIC DATA...</div>
+</div>
+
+<!-- ════════ MAIN APP ════════ -->
+<div id="app">
+
+  <!-- TOP STATUS BAR -->
+  <div id="top-bar">
+    <div class="tb-seg active-seg">
+      <div class="dot dot-g"></div>
+      <span>SYSTEM ONLINE</span>
+    </div>
+    <div class="tb-seg">
+      <div class="dot dot-c"></div>
+      <span>7 DOCTRINES</span>
+    </div>
+    <div class="tb-seg">
+      <span>VEDIC · CHALDEAN · JAIMINI · PANCHAPAKSHI · BHRIGU · NADI · KP</span>
+    </div>
+    <div class="tb-seg">
+      <div class="dot dot-y"></div>
+      <span>MEMORY: ACTIVE</span>
+    </div>
+    <div class="tb-seg">
+      <div class="dot dot-g"></div>
+      <span>AI ENGINE: LOADED</span>
+    </div>
+    <div class="tb-right">
+      <div id="live-clock">00:00:00</div>
+      <div class="tb-lock" onclick="lockApp()" title="Lock System">🔒</div>
+    </div>
+  </div>
+
+  <div id="body">
+
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar">
+      <div class="sb-brand">
+        <div class="sb-logo">∴ JONMOROHOSSHO</div>
+        <div class="sb-tag">OMNI ASTRO CENTER v1.3</div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">NAVIGATION</div>
+        <div class="sb-item active" id="nav-reading" onclick="showView('input')">
+          <span class="sb-ico">🔮</span>
+          <span>BIRTH READING</span>
+          <span class="sb-badge badge-free">FREE</span>
+        </div>
+        <div class="sb-item" id="nav-doctrines" onclick="showView('input')">
+          <span class="sb-ico">📜</span>
+          <span>7 DOCTRINES</span>
+        </div>
+        <div class="sb-item" id="nav-timeline" onclick="showView('input')">
+          <span class="sb-ico">⏳</span>
+          <span>LIFE TIMELINE</span>
+        </div>
+        <div class="sb-item" id="nav-vault" onclick="showVault()">
+          <span class="sb-ico">🔐</span>
+          <span>DYNASTY VAULT</span>
+          <span class="sb-badge badge-lock">LOCKED</span>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">PRICING</div>
+        <div class="sb-tier">
+          <div class="tier-name">✦ FREE TIER</div>
+          <div class="tier-price">৳ 0</div>
+          <div class="tier-unit">FIRST 13 SEEKERS</div>
+          <div class="tier-tag">● <span id="sb-free-left">13</span> SLOTS REMAINING</div>
+        </div>
+        <div class="sb-tier" style="border-color:rgba(0,229,255,.15);background:rgba(0,229,255,.02);">
+          <div class="tier-name" style="color:var(--cyan);">◈ BASIC</div>
+          <div class="tier-price" style="color:var(--cyanl);">৳ 1313</div>
+          <div class="tier-unit">STANDARD READING</div>
+          <div class="tier-tag" style="color:rgba(0,229,255,.5);">● FULL CHART + REMEDIES</div>
+        </div>
+        <div class="sb-tier" style="border-color:rgba(201,162,39,.25);background:rgba(201,162,39,.04);">
+          <div class="tier-name" style="color:var(--goldl);">★ PREMIUM</div>
+          <div class="tier-price" style="color:var(--goldl);">৳ 3333</div>
+          <div class="tier-unit">DEEP ANALYSIS</div>
+          <div class="tier-tag" style="color:rgba(201,162,39,.6);">● ALL 7 DOCTRINES + VAULT</div>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">SYSTEM</div>
+        <div class="sb-item">
+          <span class="sb-ico">📊</span>
+          <span>TESTIMONIALS</span>
+          <span class="sb-badge badge-free">0/13</span>
+        </div>
+        <div class="sb-item">
+          <span class="sb-ico">⚙</span>
+          <span>SETTINGS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main">
+
+      <!-- INPUT VIEW -->
+      <div id="view-input">
+
+        <div class="page-hdr">
+          <span class="page-hdr-ico">🔮</span>
+          <span class="page-hdr-title">BIRTH DATA ANALYZER</span>
+          <div class="page-hdr-right">
+            <span class="hdr-badge" style="background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);color:var(--green);font-family:var(--font-mono);font-size:9px;padding:4px 12px;letter-spacing:2px;">
+              ● SYSTEM READY
+            </span>
+          </div>
+        </div>
+
+        <!-- HERO ROW -->
+        <div class="input-hero">
+
+          <!-- Planet Display -->
+          <div class="planet-display">
+            <div class="pd-scan"></div>
+            <div class="pd-corner tl"></div><div class="pd-corner tr"></div>
+            <div class="pd-corner bl"></div><div class="pd-corner br"></div>
+
+            <div class="planet-3d-wrap">
+              <div class="p3d-core"></div>
+              <div class="p3d-ring p3d-r1"></div>
+              <div class="p3d-ring p3d-r2"></div>
+              <div class="p3d-ring p3d-r3"></div>
+              <div class="p3d-equator"></div>
+              <div class="p3d-sat ps1"></div>
+              <div class="p3d-sat ps2"></div>
+              <div class="p3d-sat ps3"></div>
+            </div>
+
+            <div class="pd-title">JONMOROHOSSHO</div>
+            <div class="pd-sub">∴ SOUND · FREQUENCY · DESTINY ∴</div>
+
+            <!-- Live doctrine status -->
+            <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px;">
+              <span style="font-family:var(--font-mono);font-size:9px;color:rgba(0,229,255,.5);background:rgba(0,229,255,.05);padding:3px 8px;border:1px solid rgba(0,229,255,.12);border-radius:2px;">VEDIC</span>
+              <span style="font-family:var(--font-mono);font-size:9px;color:rgba(201,162,39,.5);background:rgba(201,162,39,.05);padding:3px 8px;border:1px solid rgba(201,162,39,.12);border-radius:2px;">CHALDEAN</span>
+              <span style="font-family:var(--font-mono);font-size:9px;color:rgba(124,58,237,.6);background:rgba(124,58,237,.05);padding:3px 8px;border:1px solid rgba(124,58,237,.15);border-radius:2px;">JAIMINI</span>
+              <span style="font-family:var(--font-mono);font-size:9px;color:rgba(0,255,136,.5);background:rgba(0,255,136,.05);padding:3px 8px;border:1px solid rgba(0,255,136,.12);border-radius:2px;">PANCHAPAKSHI</span>
+              <span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,107,107,.6);background:rgba(255,107,107,.05);padding:3px 8px;border:1px solid rgba(255,107,107,.12);border-radius:2px;">BHRIGU</span>
+              <span style="font-family:var(--font-mono);font-size:9px;color:rgba(251,191,36,.6);background:rgba(251,191,36,.05);padding:3px 8px;border:1px solid rgba(251,191,36,.12);border-radius:2px;">NADI</span>
+              <span style="font-family:var(--font-mono);font-size:9px;color:rgba(192,132,252,.6);background:rgba(192,132,252,.05);padding:3px 8px;border:1px solid rgba(192,132,252,.15);border-radius:2px;">KP</span>
+            </div>
+
+            <div class="pd-mantra">NAAUM · RHAA-VEI · ADYAA-RA · KAAVRHA-UM · ∴ 377108</div>
+          </div>
+
+          <!-- Input Form -->
+          <div class="input-form">
+            <div class="form-title">
+              <span>◈</span>
+              <span>BIRTH DATA ENTRY</span>
+            </div>
+            <div class="form-sub">Enter accurate birth details to activate cosmic reading</div>
+
+            <!-- Free slots -->
+            <div class="free-slots">
+              <div class="fs-num" id="free-num">13</div>
+              <div class="fs-info">
+                <div class="fs-label">FREE READINGS ACTIVE</div>
+                <div class="fs-sub">First 13 seekers · Testimonial collection</div>
+                <div class="fs-dots" id="free-dots"></div>
+              </div>
+            </div>
+
+            <!-- Name -->
+            <div class="field-group">
+              <span class="field-label">◈ Full Name</span>
+              <input class="field-inp" type="text" id="inp-name" placeholder="Your full name...">
+            </div>
+
+            <!-- DOB -->
+            <div class="field-group">
+              <span class="field-label">📅 Date of Birth</span>
+              <input class="field-inp" type="date" id="inp-dob" style="color-scheme:dark;">
+            </div>
+
+            <!-- TOB -->
+            <div class="field-group">
+              <span class="field-label">🕐 Time of Birth</span>
+              <input class="field-inp" type="time" id="inp-tob" style="color-scheme:dark;">
+            </div>
+
+            <!-- POB -->
+            <div class="field-group">
+              <span class="field-label">🌍 Place of Birth</span>
+              <input class="field-inp" type="text" id="inp-pob" placeholder="City, Country...">
+            </div>
+
+            <!-- Tier -->
+            <div class="field-group">
+              <span class="field-label">★ Reading Tier</span>
+              <select class="field-inp" id="inp-tier">
+                <option value="free">✦ FREE (Limited — First 13)</option>
+                <option value="basic">◈ BASIC — ৳ 1313 (Full Chart)</option>
+                <option value="premium">★ PREMIUM — ৳ 3333 (All 7 Doctrines)</option>
+              </select>
+            </div>
+
+            <div class="form-err" id="form-err"></div>
+            <button class="activate-btn" onclick="activateReading()">
+              ✦ &nbsp; ACTIVATE ASTRO READING &nbsp; ✦
+            </button>
+          </div>
+        </div>
+
+        <!-- DOCTRINE SELECTOR -->
+        <div class="doctrine-grid">
+          <div class="doctrine-card active-d" onclick="toggleDoctrine(this)">
+            <div class="dc-ico">🪐</div>
+            <div class="dc-name">VEDIC</div>
+            <div class="dc-system">Jyotish · Parashari</div>
+            <div class="dc-dot"></div>
+          </div>
+          <div class="doctrine-card active-d" onclick="toggleDoctrine(this)">
+            <div class="dc-ico">🔢</div>
+            <div class="dc-name">CHALDEAN</div>
+            <div class="dc-system">Numerology</div>
+            <div class="dc-dot"></div>
+          </div>
+          <div class="doctrine-card active-d" onclick="toggleDoctrine(this)">
+            <div class="dc-ico">♟</div>
+            <div class="dc-name">JAIMINI</div>
+            <div class="dc-system">Karakas · Upadesha</div>
+            <div class="dc-dot"></div>
+          </div>
+          <div class="doctrine-card" onclick="toggleDoctrine(this)">
+            <div class="dc-ico">🦉</div>
+            <div class="dc-name">PANCHAPAKSHI</div>
+            <div class="dc-system">Five Birds · Siddha</div>
+            <div class="dc-dot" style="background:rgba(0,229,255,.3);box-shadow:none;"></div>
+          </div>
+          <div class="doctrine-card" onclick="toggleDoctrine(this)">
+            <div class="dc-ico">📜</div>
+            <div class="dc-name">BHRIGU</div>
+            <div class="dc-system">Degrees · Nadi</div>
+            <div class="dc-dot" style="background:rgba(0,229,255,.3);box-shadow:none;"></div>
+          </div>
+          <div class="doctrine-card" onclick="toggleDoctrine(this)">
+            <div class="dc-ico">🌿</div>
+            <div class="dc-name">NADI</div>
+            <div class="dc-system">Siddha · Tamil</div>
+            <div class="dc-dot" style="background:rgba(0,229,255,.3);box-shadow:none;"></div>
+          </div>
+          <div class="doctrine-card" onclick="toggleDoctrine(this)">
+            <div class="dc-ico">⚙</div>
+            <div class="dc-name">KP SYSTEM</div>
+            <div class="dc-system">Krishnamurti · Sub-lords</div>
+            <div class="dc-dot" style="background:rgba(0,229,255,.3);box-shadow:none;"></div>
+          </div>
+        </div>
+
+      </div><!-- /view-input -->
+
+      <!-- RESULT VIEW -->
+      <div id="view-result">
+
+        <!-- Result Header -->
+        <div class="result-header">
+          <div class="rh-scan"></div>
+          <div>
+            <div class="rh-name" id="res-name">—</div>
+            <div class="rh-dob" id="res-dob">—</div>
+            <div class="rh-pob" id="res-pob">—</div>
+          </div>
+          <div class="rh-meta"></div>
+          <div style="text-align:center;">
+            <div class="rh-code" id="res-lifepath">—</div>
+            <div class="rh-code-label">LIFE PATH</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="rh-code" id="res-sunrasi" style="font-size:20px;">—</div>
+            <div class="rh-code-label">SUN SIGN</div>
+          </div>
+          <button onclick="showView('input')" style="
+            margin-left:auto;padding:10px 20px;
+            background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.25);
+            color:var(--cyan);font-family:var(--font-display);font-size:11px;
+            letter-spacing:3px;cursor:pointer;border-radius:2px;
+            transition:.2s;font-weight:700;
+          " onmouseover="this.style.background='rgba(0,229,255,.15)'"
+             onmouseout="this.style.background='rgba(0,229,255,.08)'">
+            ↩ NEW READING
+          </button>
+        </div>
+
+        <!-- Result Cards -->
+        <div class="result-grid" id="result-cards"></div>
+
+        <!-- Life Timeline -->
+        <div class="timeline-wrap">
+          <div class="tl-title">◈ LIFE TIMELINE · TREE OF LIFE ARC</div>
+          <div class="tl-track">
+            <div class="tl-phase tl-p-root"><div class="tl-pl">ROOT</div><div class="tl-py" id="tl-root-yr"></div></div>
+            <div class="tl-phase tl-p-trunk"><div class="tl-pl">TRUNK</div><div class="tl-py" id="tl-trunk-yr"></div></div>
+            <div class="tl-phase tl-p-branch"><div class="tl-pl">BRANCHES</div><div class="tl-py" id="tl-branch-yr"></div></div>
+            <div class="tl-phase tl-p-storm"><div class="tl-pl">STORM</div><div class="tl-py" id="tl-storm-yr"></div></div>
+            <div class="tl-phase tl-p-now" style="position:relative;">
+              <div class="tl-now-mark"></div>
+              <div class="tl-pl" style="color:var(--goldl);">NOW</div>
+            </div>
+            <div class="tl-phase tl-p-golden"><div class="tl-pl" style="color:rgba(255,215,0,.6);">GOLDEN</div></div>
+            <div class="tl-phase tl-p-rahu"><div class="tl-pl" style="color:rgba(192,132,252,.6);">RAHU ERA</div><div class="tl-py" id="tl-rahu-yr"></div></div>
+          </div>
+          <div id="tl-desc" style="font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;font-weight:400;font-style:italic;"></div>
+        </div>
+
+        <!-- Doctrine panels -->
+        <div class="doctrines-panel" id="doctrine-panels"></div>
+
+        <!-- Vault -->
+        <div id="vault-section">
+          <div class="vault-hdr">
+            <div class="vault-ico">🔐</div>
+            <div class="vault-title">DYNASTY PERSONAL VAULT</div>
+            <div style="margin-left:auto;font-family:var(--font-mono);font-size:9px;color:rgba(124,58,237,.4);letter-spacing:2px;">ENCRYPTED · PRIVATE</div>
+          </div>
+          <div class="vault-locked" id="vault-locked-ui">
+            <span class="vault-lock-ico">🔒</span>
+            <div class="vault-lock-msg">VAULT IS ENCRYPTED · ENTER CIPHER TO ACCESS PERSONAL DYNASTY DATA</div>
+            <div class="vault-inp-row">
+              <input class="vault-inp" type="password" id="vault-inp" placeholder="Enter vault cipher..."
+                onkeydown="if(event.key==='Enter')openVault()">
+              <button class="vault-btn" onclick="openVault()">✦ UNLOCK</button>
+            </div>
+            <div id="vault-err" style="font-family:var(--font-mono);font-size:10px;color:var(--ruby);letter-spacing:2px;margin-top:8px;"></div>
+          </div>
+          <div id="vault-content" style="display:none;">
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+              <div class="dp-card" style="border-color:rgba(124,58,237,.2);">
+                <div class="dp-hdr"><div class="dp-ico">🪐</div><div class="dp-name" style="color:var(--violetl);">CORE CHART</div></div>
+                <div class="dp-row"><div class="dp-k">Lagna</div><div class="dp-v"><span class="hl">Taurus 19°44'</span></div></div>
+                <div class="dp-row"><div class="dp-k">Venus AK</div><div class="dp-v"><span class="warn">29°25' CRISIS</span></div></div>
+                <div class="dp-row"><div class="dp-k">Mercury</div><div class="dp-v"><span class="hl">16°29' Akarshana ✦</span></div></div>
+                <div class="dp-row"><div class="dp-k">Mars MD</div><div class="dp-v"><span class="ok">2021-2028 ACTIVE</span></div></div>
+                <div class="dp-row"><div class="dp-k">Bhrigu Bindu</div><div class="dp-v"><span class="hl">13°16' Scorpio 7th</span></div></div>
+              </div>
+              <div class="dp-card" style="border-color:rgba(201,162,39,.2);">
+                <div class="dp-hdr"><div class="dp-ico">⏰</div><div class="dp-name" style="color:var(--goldl);">TIMING WINDOWS</div></div>
+                <div class="dp-row"><div class="dp-k">Now</div><div class="dp-v"><span class="ok">Mercury AD · 16° Active</span></div></div>
+                <div class="dp-row"><div class="dp-k">Jun 2026</div><div class="dp-v"><span class="hl">Jupiter → BB Scorpio</span></div></div>
+                <div class="dp-row"><div class="dp-k">Aug 2026</div><div class="dp-v"><span class="hl">Venus AD · AK Healing</span></div></div>
+                <div class="dp-row"><div class="dp-k">Dec 2026</div><div class="dp-v"><span class="warn">BDT 60-100k Target</span></div></div>
+                <div class="dp-row"><div class="dp-k">2028</div><div class="dp-v"><span class="hl">Rahu MD · 18yr Rise</span></div></div>
+              </div>
+              <div class="dp-card" style="border-color:rgba(0,229,255,.15);grid-column:span 2;">
+                <div class="dp-hdr"><div class="dp-ico">💎</div><div class="dp-name">ARSENAL · MANTRA</div></div>
+                <div class="dp-row"><div class="dp-k">Unicorn Horn</div><div class="dp-v"><span class="warn">PERMANENT — Never remove · Heart center</span></div></div>
+                <div class="dp-row"><div class="dp-k">Ajoite</div><div class="dp-v"><span class="hl">Daily wear · Venus AK 29° healer</span></div></div>
+                <div class="dp-row"><div class="dp-k">Mantra</div><div class="dp-v"><span class="ok">NAAUM · RHAA-VEI · ADYAA-RA · KAAVRHA-UM · 108x</span></div></div>
+                <div class="dp-row"><div class="dp-k">Phone Yantra</div><div class="dp-v">Dial <span class="hl">377108</span> → say mantra during ring</div></div>
+                <div class="dp-row"><div class="dp-k">D-150 Summary</div><div class="dp-v">Lagna=Visha · Venus=Vaishnavi · SreeLagna=Kokilaa · Kunda=Mukunda</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /view-result -->
+
+    </div><!-- /main -->
+  </div><!-- /body -->
+</div><!-- /app -->
+
+<script>
+/* ════════ INIT ════════ */
+// Stars
+(function(){
+  const c=document.getElementById('pw-stars-container');
+  for(let i=0;i<200;i++){
+    const d=document.createElement('div');d.className='star';
+    const s=Math.random()*2+.5;
+    d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;top:${Math.random()*100}%;background:${Math.random()>.7?'#f5d060':Math.random()>.5?'#a78bfa':'#fff'};--sd:${(Math.random()*4+1.5).toFixed(1)}s;--so:${(Math.random()*.7+.3).toFixed(1)};animation-delay:${(Math.random()*5).toFixed(1)}s;position:absolute;`;
+    c.appendChild(d);
+  }
+  // Cosmic bg stars
+  const cb=document.getElementById('cosmic-bg');
+  for(let i=0;i<150;i++){
+    const d=document.createElement('div');d.className='star';
+    const s=Math.random()*1.5+.3;
+    d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;top:${Math.random()*100}%;background:${Math.random()>.8?'#f5d060':'#fff'};--sd:${(Math.random()*5+2).toFixed(1)}s;--so:${(Math.random()*.5+.2).toFixed(1)};animation-delay:${(Math.random()*6).toFixed(1)}s;position:absolute;`;
+    cb.appendChild(d);
+  }
+})();
+
+// Free slots dots
+(function(){
+  const c=document.getElementById('free-dots');
+  for(let i=0;i<13;i++){
+    const d=document.createElement('div');
+    d.className='fs-dot avail';
+    d.id='fd-'+i;
+    c.appendChild(d);
+  }
+})();
+
+// Fade in
+setTimeout(()=>{document.getElementById('fade-overlay').style.opacity='0';},100);
+
+/* ════════ CLOCKS ════════ */
+function tick(){
+  const n=new Date();
+  const t=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;
+  const pwc=document.getElementById('pw-clock');
+  const lc=document.getElementById('live-clock');
+  if(pwc)pwc.textContent=t;
+  if(lc)lc.textContent=t;
+}
+function pad(n){return String(n).padStart(2,'0');}
+setInterval(tick,1000);tick();
+
+/* ════════ PASSWORD ════════ */
+const PW='13.13.33';
+const VAULT_PW='13.13.33';
+let pwAttempts=0;
+let freeSlots=13;
+
+function doLogin(){
+  const v=document.getElementById('pw-input').value.trim();
+  const e=document.getElementById('pw-err');
+  if(!v){e.textContent='◈ Enter the sacred cipher';return;}
+  if(v===PW){
+    e.textContent='';
+    document.getElementById('fade-overlay').style.opacity='1';
+    document.getElementById('fade-overlay').style.pointerEvents='auto';
+    setTimeout(()=>{
+      document.getElementById('pw-screen').style.display='none';
+      document.getElementById('app').style.display='flex';
+      document.getElementById('fade-overlay').style.opacity='0';
+      document.getElementById('fade-overlay').style.pointerEvents='none';
+    },500);
+  } else {
+    pwAttempts++;
+    document.getElementById('pw-input').value='';
+    e.textContent=`✗ Invalid cipher · ${3-Math.min(pwAttempts,2)} attempt(s) remaining`;
+  }
+}
+
+function lockApp(){
+  document.getElementById('fade-overlay').style.opacity='1';
+  document.getElementById('fade-overlay').style.pointerEvents='auto';
+  setTimeout(()=>{
+    document.getElementById('app').style.display='none';
+    document.getElementById('pw-screen').style.display='flex';
+    document.getElementById('pw-input').value='';
+    document.getElementById('pw-err').textContent='';
+    document.getElementById('fade-overlay').style.opacity='0';
+    document.getElementById('fade-overlay').style.pointerEvents='none';
+  },400);
+}
+
+/* ════════ DOCTRINE TOGGLE ════════ */
+function toggleDoctrine(el){el.classList.toggle('active-d');}
+
+/* ════════ VIEW SWITCHER ════════ */
+function showView(v){
+  document.getElementById('view-input').style.display=v==='input'?'block':'none';
+  document.getElementById('view-result').style.display=v==='result'?'block':'none';
+  document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
+  if(v==='input')document.getElementById('nav-reading').classList.add('active');
+}
+
+function showVault(){
+  showView('result');
+  setTimeout(()=>{
+    document.getElementById('vault-section').scrollIntoView({behavior:'smooth'});
+  },100);
+}
+
+/* ════════ CALCULATIONS ════════ */
+function reduceNum(n){
+  while(n>9&&n!==11&&n!==22&&n!==33){
+    n=String(n).split('').reduce((a,b)=>a+parseInt(b),0);
+  }
+  return n;
+}
+
+function getSunSign(m,d){
+  const signs=[
+    ['Capricorn',1,20],['Aquarius',2,19],['Pisces',3,21],['Aries',4,20],
+    ['Taurus',5,21],['Gemini',6,21],['Cancer',7,23],['Leo',8,23],
+    ['Virgo',9,23],['Libra',10,23],['Scorpio',11,22],['Sagittarius',12,22]
+  ];
+  for(const [name,sm,sd] of signs){
+    if(m<sm||(m===sm&&d<sd))return name;
+  }
+  return 'Capricorn';
+}
+
+const NAKS=[
+  'Ashwini','Bharani','Krittika','Rohini','Mrigashira','Ardra',
+  'Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni',
+  'Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha',
+  'Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishtha',
+  'Shatabhisha','Purva Bhadrapada','Uttara Bhadrapada','Revati'
+];
+
+const LP_MEANINGS={
+  1:'The Pioneer — independent, leadership karma',
+  2:'The Diplomat — sensitivity, partnership',
+  3:'The Creator — expression, joy, communication',
+  4:'The Builder — discipline, structure',
+  5:'The Wanderer — freedom, change, versatility',
+  6:'The Nurturer — love, family, service',
+  7:'The Seeker — mysticism, depth',
+  8:'The Powerhouse — authority, wealth',
+  9:'The Humanitarian — completion karma',
+  11:'Master Intuitive — spiritual illumination',
+  22:'Master Builder — visionary architecture',
+  33:'Master Healer — unconditional service'
+};
+
+const DASHA_LORDS=['Sun','Moon','Mars','Rahu','Jupiter','Saturn','Mercury','Ketu','Venus'];
+const DASHA_YEARS=[6,10,7,18,16,19,17,7,20];
+
+function getCurrentDasha(birthYear){
+  const age=2026-birthYear;
+  let total=0;
+  for(let i=0;i<9;i++){
+    total+=DASHA_YEARS[i];
+    if(age<total)return{lord:DASHA_LORDS[i],years:DASHA_YEARS[i]};
+  }
+  return{lord:DASHA_LORDS[Math.floor(age/10)%9],years:10};
+}
+
+/* ════════ ACTIVATE READING ════════ */
+function activateReading(){
+  const name=document.getElementById('inp-name').value.trim();
+  const dob=document.getElementById('inp-dob').value;
+  const tob=document.getElementById('inp-tob').value;
+  const pob=document.getElementById('inp-pob').value.trim();
+  const tier=document.getElementById('inp-tier').value;
+  const err=document.getElementById('form-err');
+
+  if(!name){err.textContent='◈ Enter your full name';return;}
+  if(!dob){err.textContent='◈ Date of birth required';return;}
+  if(!tob){err.textContent='◈ Time of birth required';return;}
+  if(!pob){err.textContent='◈ Place of birth required';return;}
+  err.textContent='';
+
+  // Show loading
+  const lo=document.getElementById('loading-overlay');
+  lo.style.display='flex';
+  const msgs=['LOADING COSMIC DATA...','CALCULATING VEDIC CHART...','RUNNING CHALDEAN NUMEROLOGY...','ACTIVATING PANCHAPAKSHI...','COMPUTING JAIMINI KARAKAS...','SYNTHESIZING 7 DOCTRINES...','COMPILING PERSONAL BLUEPRINT...'];
+  let mi=0;
+  const miv=setInterval(()=>{
+    document.getElementById('ld-sub-text').textContent=msgs[mi%msgs.length];
+    mi++;
+  },400);
+
+  setTimeout(()=>{
+    clearInterval(miv);
+    lo.style.display='none';
+    computeAndShow({name,dob,tob,pob,tier});
+    // Reduce free slot
+    if(tier==='free'&&freeSlots>0){
+      freeSlots--;
+      document.getElementById('free-num').textContent=freeSlots;
+      document.getElementById('sb-free-left').textContent=freeSlots;
+      const dot=document.getElementById('fd-'+(13-freeSlots-1));
+      if(dot){dot.classList.remove('avail');dot.classList.add('used');}
+    }
+  },3000);
+}
+
+function computeAndShow({name,dob,tob,pob,tier}){
+  const d=new Date(dob);
+  const day=d.getDate(),month=d.getMonth()+1,year=d.getFullYear();
+  const [hh,mm]=(tob||'00:00').split(':').map(Number);
+
+  // Numerology
+  const lpRaw=day+month+(year%100);
+  const lifePath=reduceNum(lpRaw);
+  const personalYear=reduceNum(day+month+(2026%100));
+  const dayNum=reduceNum(day);
+  const CHALDEAN={A:1,B:2,C:3,D:4,E:5,F:8,G:3,H:5,I:1,J:1,K:2,L:3,M:4,N:5,O:7,P:8,Q:1,R:2,S:3,T:4,U:6,V:6,W:6,X:5,Y:1,Z:7};
+  const nameNum=reduceNum(name.toUpperCase().replace(/[^A-Z]/g,'').split('').reduce((a,c)=>a+(CHALDEAN[c]||0),0)||1);
+
+  // Sun sign
+  const sunSign=getSunSign(month,day);
+
+  // Nakshatra (approx)
+  const nakIdx=(day*month)%27;
+  const nakshatra=NAKS[nakIdx];
+
+  // Lagna (approx by birth hour)
+  const lagnaIdx=Math.floor(((hh*60+mm)/(24*60))*12)%12;
+  const lagnas=['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
+  const lagna=lagnas[lagnaIdx];
+
+  // Dasha
+  const dasha=getCurrentDasha(year);
+
+  // Birth bird (Panchapakshi - based on nakshatra)
+  const birds=['Vulture','Owl','Crow','Hen','Peacock'];
+  const birthBird=birds[nakIdx%5];
+  const birdIcos={Vulture:'🦅',Owl:'🦉',Crow:'🐦‍⬛',Hen:'🐓',Peacock:'🦚'};
+
+  // Phase
+  const age=2026-year;
+  let phase='',phaseDesc='';
+  if(age<12){phase='ROOT';phaseDesc='Early foundations being encoded. Ketu wisdom activating from birth.';}
+  else if(age<25){phase='TRUNK';phaseDesc='Identity formation. Digital+spiritual paths emerging.';}
+  else if(age<40){phase='BRANCHES';phaseDesc='Depth building phase. Recognition suppressed but growing.';}
+  else if(age<44){phase='STORM→BLOOM';phaseDesc='Crisis completing. Mercury awake. Maximum output window NOW.';}
+  else if(age<50){phase='GOLDEN';phaseDesc='AK healing phase. Venus window. Adya karma resolving.';}
+  else{phase='RAHU ERA';phaseDesc='18-year expansion. Platform built now determines the scale.';}
+
+  // Life path meaning
+  const lpMeaning=LP_MEANINGS[lifePath]||'Unique synthesis path';
+
+  // Odd/Even degree
+  const lagnaDeg=19; // approximated
+  const lagnaMode=lagnaDeg%2===0?'EVEN — Karmic endurance path':'ODD — Event-driven, action-oriented life';
+
+  // Result header
+  document.getElementById('res-name').textContent=name.toUpperCase();
+  document.getElementById('res-dob').textContent=`${String(day).padStart(2,'0')} / ${String(month).padStart(2,'0')} / ${year} · ${tob}`;
+  document.getElementById('res-pob').textContent=`📍 ${pob}`;
+  document.getElementById('res-lifepath').textContent=lifePath;
+  document.getElementById('res-sunrasi').textContent=sunSign;
+
+  // Timeline years
+  document.getElementById('tl-root-yr').textContent=`${year}-${year+12}`;
+  document.getElementById('tl-trunk-yr').textContent=`${year+12}-${year+25}`;
+  document.getElementById('tl-branch-yr').textContent=`${year+25}-${year+40}`;
+  document.getElementById('tl-storm-yr').textContent=`${year+39}-${year+43}`;
+  document.getElementById('tl-rahu-yr').textContent=`${year+46}+`;
+  document.getElementById('tl-desc').textContent=`Current Phase: ${phase} — ${phaseDesc}`;
+
+  // Result cards
+  const cards=[
+    {cls:'rc-gold',ico:'🔢',title:'Life Path',main:lifePath,desc:lpMeaning,tag:'Chaldean',tc:'background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.2);color:var(--gold)'},
+    {cls:'rc-cyan',ico:'🪐',title:'Rising Sign',main:lagna,desc:`Birth time ${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')} — Lagna encodes personality and vitality`,tag:'Vedic',tc:'background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:rgba(0,229,255,.8)'},
+    {cls:'rc-violet',ico:'⭐',title:'Sun Sign',main:sunSign,desc:`Solar consciousness — authority pattern and life force expression`,tag:'Vedic',tc:'background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);color:var(--violetl)'},
+    {cls:'rc-green',ico:'🦉',title:'Birth Bird',main:birthBird,desc:`${birdIcos[birthBird]} Panchapakshi — Permanent birth bird, lifelong rhythm of time`,tag:'Siddha',tc:'background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);color:var(--green)'},
+    {cls:'rc-amber',ico:'🌙',title:'Nakshatra',main:nakshatra,desc:`Birth star — the soul's specialty frequency and karmic signature`,tag:'Vedic',tc:'background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--amberl)'},
+    {cls:'rc-ruby',ico:'⏳',title:'Current Dasha',main:dasha.lord,desc:`Mahadasha lord governing ${dasha.years} years — the planetary teacher now active`,tag:'Vimsottari',tc:'background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.2);color:var(--rubyl)'},
+    {cls:'rc-gold',ico:'📅',title:'Personal Year 2026',main:personalYear,desc:`Year ${personalYear} vibration — ${personalYear<=3?'New beginnings, plant seeds':personalYear<=6?'Build and consolidate':'Inner work and completion'}`,tag:'Numerology',tc:'background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.2);color:var(--gold)'},
+    {cls:'rc-cyan',ico:'🔢',title:'Name Vibration',main:nameNum,desc:`Chaldean name number — the planetary code others respond to before meeting you`,tag:'Chaldean',tc:'background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:rgba(0,229,255,.8)'},
+    {cls:'rc-violet',ico:'♟',title:'Day Number',main:dayNum,desc:`Birth day number — immediate expression style and daily karmic mode`,tag:'Jaimini',tc:'background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);color:var(--violetl)'},
+  ];
+
+  document.getElementById('result-cards').innerHTML=cards.map(c=>`
+    <div class="result-card ${c.cls}">
+      <div class="rc-top"></div>
+      <div class="rc-ico">${c.ico}</div>
+      <div class="rc-title">${c.title}</div>
+      <div class="rc-main">${c.main}</div>
+      <div class="rc-desc">${c.desc}</div>
+      <span class="rc-tag" style="${c.tc}">${c.tag}</span>
+    </div>
+  `).join('');
+
+  // Doctrine panels
+  const docPanels=[
+    {ico:'🪐',name:'VEDIC DOCTRINE',badge:'PARASHARI',rows:[
+      {k:'Lagna (Rising)',v:`<span class="hl">${lagna}</span> — ${lagna==='Taurus'?'Fixed earth, Venus ruled, permanent foundations':'Rising sign encodes your life identity'}`},
+      {k:'Sun Sign',v:`<span class="hl">${sunSign}</span> — Solar authority and consciousness pattern`},
+      {k:'Birth Nakshatra',v:`<span class="hl">${nakshatra}</span> — Soul's frequency, the cosmic address`},
+      {k:'Current Dasha',v:`<span class="ok">${dasha.lord} Mahadasha</span> — Ruling ${dasha.years} years. Primary teacher.`},
+    ]},
+    {ico:'🔢',name:'CHALDEAN NUMEROLOGY',badge:'VEDIC MATH',rows:[
+      {k:'Life Path',v:`<span class="hl">${lifePath}</span> — ${lpMeaning}`},
+      {k:'Name Number',v:`<span class="hl">${nameNum}</span> — ${name.toUpperCase()} is a karmic mantra`},
+      {k:'Day Number',v:`<span class="hl">${dayNum}</span> — Immediate expression mode`},
+      {k:'Personal Year',v:`<span class="hl">${personalYear}</span> — 2026 vibration`},
+    ]},
+    {ico:'🦉',name:'PANCHAPAKSHI',badge:'SIDDHA',rows:[
+      {k:'Birth Bird',v:`<span class="hl">${birdIcos[birthBird]} ${birthBird}</span> — Permanent. Never changes.`},
+      {k:'Peak Hours',v:`OWL: <span class="ok">Late night 11pm-3am</span> (Ruling state)` },
+      {k:'Lakshmi Link',v:`${birthBird==='Owl'?'<span class="hl">OWL = Lakshmi vehicle</span>':'Birth bird consciousness active'}`},
+      {k:'2026 Year Bird',v:`<span class="warn">CROW</span> — Communication + intelligence rules`},
+    ]},
+    {ico:'♟',name:'JAIMINI KARAKAS',badge:'UPADESHA',rows:[
+      {k:'AK (Soul)',v:`Highest degree planet — soul lesson of this life`},
+      {k:'DK (Partner)',v:`7th degree planet — partnership karma teacher`},
+      {k:'AmK (Career)',v:`2nd highest — the work identity and mission`},
+      {k:'Bhrigu Bindu',v:`Jupiter transit = <span class="hl">breakthrough window</span>`},
+    ]},
+    {ico:'📜',name:'BHRIGU DEGREE DOCTRINE',badge:'NADI',rows:[
+      {k:'9° Anugraha',v:`Grace / Blessing point — divine support zone`},
+      {k:'16° Akarshana',v:`<span class="hl">Magnetism degree</span> — people drawn without effort`},
+      {k:'27° Moksha',v:`Liberation career path — service to collective`},
+      {k:'29° Crisis',v:`<span class="warn">Final exam degree</span> — completion approaching`},
+    ]},
+    {ico:'🌿',name:'NADI + KP SYNTHESIS',badge:'SIDDHA + KP',rows:[
+      {k:'Sub-lord Pattern',v:`KP system: cuspal sub-lords determine event timing`},
+      {k:'Nadi Reading',v:`Tamil Siddha tradition — past karma + future path`},
+      {k:'Prime Window',v:`<span class="ok">Mercury AD active</span> — maximum output NOW`},
+      {k:'Odd/Even Mode',v:`${lagnaMode}`},
+    ]},
+  ];
+
+  document.getElementById('doctrine-panels').innerHTML=docPanels.map(p=>`
+    <div class="dp-card">
+      <div class="dp-hdr">
+        <div class="dp-ico">${p.ico}</div>
+        <div class="dp-name">${p.name}</div>
+        <div class="dp-badge">${p.badge}</div>
+      </div>
+      ${p.rows.map(r=>`<div class="dp-row"><div class="dp-k">${r.k}</div><div class="dp-v">${r.v}</div></div>`).join('')}
+    </div>
+  `).join('');
+
+  showView('result');
+  window.scrollTo(0,0);
+  document.getElementById('view-result').scrollTop=0;
+}
+
+/* ════════ VAULT ════════ */
+function openVault(){
+  const v=document.getElementById('vault-inp').value.trim();
+  const e=document.getElementById('vault-err');
+  if(v===VAULT_PW){
+    document.getElementById('vault-locked-ui').style.display='none';
+    document.getElementById('vault-content').style.display='block';
+    e.textContent='';
+  } else {
+    e.textContent='✗ Invalid vault cipher';
+    document.getElementById('vault-inp').value='';
+  }
+}
+
+// Show vault even from sidebar nav
+document.getElementById('nav-vault').addEventListener('click',()=>{
+  showView('result');
+  setTimeout(()=>{document.getElementById('vault-section').scrollIntoView({behavior:'smooth'});},200);
+});
+</script>
+</body>
+</html>
